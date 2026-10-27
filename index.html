@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070d17">
+<title>GARUDA CLAN • Match AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo">◆</div><div><b>GARUDA CLAN</b><small>PLAY • IMPROVE • DOMINATE</small></div></div>
+  <div class="headRight"><span id="matchCount">0 MATCHES</span><button id="reset" class="ghost">Reset</button></div>
+</header>
+
+<main>
+<section class="hero">
+ <div><span class="eyebrow">SQUAD ANALYTICS [G-ELITE]</span><h1>Match Feed</h1><p>Har match ke baad <b>1 screenshot</b> upload karo. OCR + analytics automatically stats ko read karke report banayega.</p></div>
+ <button class="primary" id="uploadTop">＋ Add Match</button>
+</section>
+
+<section class="periods">
+ <button data-days="1">1 Day</button><button data-days="2">2 Days</button><button data-days="4">4 Days</button><button data-days="7" class="active">Week</button><button data-days="30">Month</button>
+</section>
+
+<section class="stats" id="stats"></section>
+
+<section class="panel">
+ <div class="panelHead"><div><h2>Player Analytics</h2><small id="rangeText">Last 7 days</small></div>
+ <div class="toggle"><button id="individual" class="active">Individual</button><button id="team">Team</button></div></div>
+ <div id="analytics"></div>
+</section>
+
+<section class="panel">
+ <div class="panelHead"><div><h2>AI Improvement Needed</h2><small>Automatically detected weak areas</small></div></div>
+ <div id="improve"></div>
+</section>
+
+<section class="panel upload">
+ <div class="panelHead"><div><h2>Upload Match Screenshot</h2><small>1 image = 1 match</small></div></div>
+ <div id="drop" class="drop">
+  <div class="cloud">⇧</div><h3>Upload one screenshot</h3>
+  <p>PNG • JPG • WEBP<br>Names, numbers, symbols and stats are detected from the image.</p>
+  <button class="primary" id="choose">Choose Screenshot</button>
+  <input id="file" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+ </div>
+ <div id="processing" class="processing hidden"><div class="spinner"></div><b id="status">Reading screenshot…</b><span id="progress">0%</span><p id="raw"></p></div>
+</section>
+
+<section class="panel">
+ <div class="panelHead"><div><h2>AI Combined Report</h2><small>Selected period • all uploaded matches combined</small></div></div>
+ <div id="report"></div>
+</section>
+
+<section class="panel">
+ <div class="panelHead"><div><h2>Recent Matches</h2><small>Tap a match to inspect it</small></div></div>
+ <div id="matches"></div>
+</section>
+<footer>Local-first dashboard • Data stays in this browser • OCR engine loads from the internet</footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
